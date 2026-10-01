@@ -1,417 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Kumar | Software Engineer & Founder</title>
-    <meta name="description" content="Portfolio of Prince Kumar, a backend-focused software engineer and startup founder specializing in scalable systems, AI-powered products, and real-world digital platforms.">
-    <meta name="keywords" content="Prince Kumar, Software Engineer, Backend Engineer, Spring Boot, Microservices, Founder, IIIT Delhi, HCLTech">
-    
-    <!-- External CSS & Fonts -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Prince Kumar | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --surface-color: #16161e;
+            --surface-color-light: #1f1f2e;
+            --primary-color: #00d2ff;
+            --primary-gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            --secondary-color: #a0a5b1;
+            --text-color: #f0f0f5;
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --glass-bg: rgba(22, 22, 30, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(58, 123, 213, 0.08), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .highlight {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Nav */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 5vw, 5rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-desc {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        /* Experience Section */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: var(--glass-border);
+            flex-grow: 1;
+        }
+
+        .experience-card {
+            background: var(--surface-color);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-role {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .exp-company {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .exp-date {
+            font-family: var(--font-mono);
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-item {
+            background: var(--surface-color-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-family: var(--font-mono);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+        }
+
+        .metric-label {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        /* Projects */
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: var(--surface-color);
+            border: 1px solid var(--glass-border);
+            color: var(--secondary-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            background: rgba(0, 210, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 210, 255, 0.1);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-focus {
+            font-family: var(--font-mono);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .modal-body h4 {
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text-color);
+        }
+
+        .modal-body p {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact & Footer */
+        .contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .contact-box {
+            background: var(--surface-color);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-email {
+            font-family: var(--font-mono);
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .btn-copy {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .btn-copy:hover {
+            background: rgba(0, 210, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--glass-border);
+            color: var(--secondary-color);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .exp-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                /* Mobile menu would go here */
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Loading Animation -->
-    <div class="loader-wrapper" id="loader">
-        <span class="loader"></span>
-    </div>
-
-    <!-- Glowing Background Elements -->
-    <div class="glow-orb"></div>
-    <div class="glow-orb-2"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
+    <header id="header">
         <div class="container">
-            <a href="#" class="nav-logo gradient-text">PK.</a>
-            <ul class="nav-links">
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#skills">Skills</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <nav>
+                <a href="#" class="logo">P.K<span class="highlight">_</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero container">
-            <div class="hero-content reveal">
-                <div class="hero-text-area">
-                    <div class="hero-badge-intro">
-                        <span class="pulse-dot"></span> Available for new opportunities
-                    </div>
-                    <h1 class="hero-title">
-                        Building <span class="gradient-text">Scalable</span> Backend Systems & <br/>Real-World Products
-                    </h1>
-                    <div class="hero-role-wrapper">
-                        <span class="hero-role-static">I am a</span>
-                        <div class="role-rotator">
-                            <span class="role-item active">Backend Engineer</span>
-                            <span class="role-item">Systems Developer</span>
-                            <span class="role-item">Startup Builder</span>
-                            <span class="role-item">System Architect</span>
-                        </div>
-                    </div>
+        <section class="hero" id="about">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-subtitle">Hello, I am Prince Kumar</span>
+                    <h1 class="hero-title">Engineering <span class="highlight">Robust Backend Systems</span> &
+                        Microservices.</h1>
                     <p class="hero-desc">
-                        I am a backend-focused software engineer currently working at HCLTech as a Software Engineer. I specialize in scalable backend architecture, Spring Boot microservices, REST APIs, distributed systems, and production-grade engineering.
+                        Software Engineer specializing in transactional data processing, distributed systems, and
+                        production microservices. I build high-throughput platforms utilizing Java, Spring Boot, and
+                        cloud-native architectures.
                     </p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-premium-primary">
-                            <span>View Projects</span> <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-premium-secondary">
-                            Contact Me
-                        </a>
-                        <a href="#" class="btn btn-premium-outline">
-                            <i class="fas fa-download"></i> Resume
-                        </a>
-                    </div>
-                    
-                    <div class="hero-socials">
-                        <a href="https://github.com/PrinceKumar182" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/princeiiitd/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://leetcode.com/u/prince21182" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
-                        <a href="mailto:prince21182@iiitd.ac.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="hero-visual-area">
-                    <div class="hero-image-container parallax-container">
-                        <div class="glass-backing"></div>
-                        <div class="gradient-ring"></div>
-                        <img src="Prince_PortfolioImage.jfif" alt="Prince Kumar" class="hero-image-premium parallax-layer" data-speed="2">
-                        
-                        <!-- Floating Badges -->
-                        <div class="floating-badge badge-1 parallax-layer" data-speed="4"><i class="fas fa-leaf" style="color: #22c55e;"></i> Spring Boot</div>
-                        <div class="floating-badge badge-2 parallax-layer" data-speed="-3"><i class="fas fa-cubes" style="color: #3b82f6;"></i> Microservices</div>
-                        <div class="floating-badge badge-3 parallax-layer" data-speed="5"><i class="fas fa-rocket" style="color: #f97316;"></i> Founder</div>
-                        <div class="floating-badge badge-4 parallax-layer" data-speed="-4"><i class="fas fa-brain" style="color: #ec4899;"></i> AI Systems</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-stats-strip reveal">
-                <div class="stat-item">
-                    <i class="fas fa-server"></i> 4+ Production Projects
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <i class="fas fa-trophy"></i> AIR 1 Hackathon Winner
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <i class="fas fa-laptop-code"></i> Technical Lead @ HCLTech
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <i class="fas fa-rocket"></i> Startup Builder
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section-padding container">
-            <h2 class="section-title reveal">About Me</h2>
-            <div class="glass-panel reveal">
-                <div class="about-text">
-                    <p>I am a backend-focused software engineer and builder currently working at HCLTech as a Technical Lead. I specialize in scalable backend architecture, Spring Boot microservices, REST APIs, distributed systems, and production-grade engineering.</p>
-                    <p>Alongside enterprise engineering, I actively build startups and digital platforms focused on solving real-world operational and commerce problems using technology, automation, and AI.</p>
-                    <p>I enjoy transforming ideas into scalable products with strong execution, clean architecture, and user-centric experiences.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section-padding container">
-            <h2 class="section-title reveal">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">B.Tech. in Electronics & Communication Engineering</h3>
-                                <div class="exp-company">Minor in Entrepreneurship | IIIT Delhi</div>
-                            </div>
-                            <div class="exp-meta">
-                                <span><i class="far fa-calendar-alt"></i> 2021-2025</span>
-                            </div>
-                        </div>
+                    <div>
+                        <a href="#projects" class="btn btn-primary">View Systems Built</a>
+                        <a href="#contact" class="btn btn-outline">Get in Touch</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="section-padding container">
-            <h2 class="section-title reveal">Experience</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">Software Engineer (Backend)</h3>
-                                <div class="exp-company">HCLTech</div>
-                            </div>
-                            <div class="exp-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Chennai, India</span> &nbsp;|&nbsp; 
-                                <span><i class="far fa-calendar-alt"></i> July 2025 – Present</span>
-                            </div>
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Production Experience</h2>
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3 class="exp-role">Software Development Engineer (SDE)</h3>
+                            <span class="exp-company">@ HCLTech</span>
                         </div>
-                        <ul class="exp-details">
-                            <li><strong>Skills:</strong> Java, Spring Boot, Microservices, Angular, Git, DevOps, GenAI, Selenium, Sonar, JUnit</li>
-                           <li><i class="fas fa-caret-right"></i> Developed and maintained backend microservices using Java, Spring Boot, and REST APIs, improving application reliability by 40%.</li>
-                           <li><i class="fas fa-caret-right"></i> Owned end-to-end resolution of 100+ production issues through root cause analysis (RCA), reducing recurring defects by 30%.</li>
-                           <li><i class="fas fa-caret-right"></i> Increased automated test coverage from 45% to 81.5% using JUnit, Selenium, and BDD, significantly improving release quality.</li>
-                           <li><i class="fas fa-caret-right"></i> Resolved 700+ SonarQube issues and optimized CI/CD workflows, cutting release cycles and improving code maintainability.</li> </ul>
+                        <span class="exp-date">Present</span>
+                    </div>
+                    <p style="color: var(--secondary-color); margin-bottom: 1rem;">
+                        Core backend engineer responsible for maintaining and optimizing critical enterprise
+                        microservices. Focused on performance profiling, defect resolution, and expanding test coverage
+                        across distributed environments.
+                    </p>
+
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-value" data-target="14">+</div>
+                            <div class="metric-label">Microservices Managed</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">8k <span
+                                    style="font-size:1rem;color:var(--secondary-color)">to</span> 50</div>
+                            <div class="metric-label">DB Calls (N+1 Optimized)</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" data-target="50">+</div>
+                            <div class="metric-label">P1/P2 Defects Fixed</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">45% <span
+                                    style="font-size:1rem;color:var(--secondary-color)">to</span> 81%</div>
+                            <div class="metric-label">Test Coverage Improved</div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">Entrepreneur-in-Residence</h3>
-                                <div class="exp-company">IIIT Delhi Incubation Center</div>
-                            </div>
-                            <div class="exp-meta">
-                                <span><i class="fas fa-rocket"></i> Startup Ecosystem</span>
-                            </div>
-                        </div>
-                        <ul class="exp-details">
-                            <li>Built startup products using MERN stack and scalable backend systems.</li>
-                            <li>Designed backend APIs and optimized database architecture.</li>
-                            <li>Worked on rapid startup execution and product iteration.</li>
-                            <li>Improved platform scalability and response performance.</li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section-padding container">
-            <h2 class="section-title reveal">Featured Projects</h2>
-            <div class="projects-grid" id="projects-container">
-                
-                <!-- Project 1 -->
-                <div class="glass-panel project-card reveal">
-                    <div class="project-header">
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Distributed & Systems Projects</h2>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="java">Java / Spring Boot</button>
+                    <button class="filter-tab" data-filter="fullstack">Full-Stack / Next.js</button>
+                    <button class="filter-tab" data-filter="ai">Python / ML</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="java" onclick="openModal('instapart')">
+                        <div class="project-icon">⚙️</div>
                         <h3 class="project-title">InstaPart</h3>
-                        <div class="project-links">
-                            <a href="https://instapart.in" target="_blank" aria-label="Visit InstaPart"><i class="fas fa-external-link-alt"></i></a>
+                        <p class="project-desc">Hyperlocal spare-parts marketplace featuring warehouse-aware inventory
+                            and transactional cart merging.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 17</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
                         </div>
                     </div>
-                    <div class="project-tagline">AI-powered automobile spare parts sourcing and commerce platform.</div>
-                    <p class="project-desc">
-                        InstaPart addresses the fragmented nature of the Indian automotive aftermarket ecosystem by helping vehicle owners, garages, and mechanics quickly discover, verify, and source the right spare parts with operational efficiency. Built with an asset-light and scalable model focusing on intelligent sourcing, vendor coordination, compatibility verification, and hyperlocal fulfillment.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">OCR</span>
-                        <span class="tech-tag">REST APIs</span>
-                    </div>
-                </div>
 
-                <!-- Project 2 -->
-                <div class="glass-panel project-card reveal">
-                    <div class="project-header">
-                        <h3 class="project-title">QR Connect</h3>
-                        <div class="project-links">
-                            <a href="https://qrconnect-clbr.onrender.com/" target="_blank" aria-label="Visit QR Connect"><i class="fas fa-external-link-alt"></i></a>
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="java" onclick="openModal('textile')">
+                        <div class="project-icon">🛒</div>
+                        <h3 class="project-title">India Textile Connect</h3>
+                        <p class="project-desc">B2B/B2C E-Commerce platform with MongoDB ACID transactions and
+                            distributed inventory locking.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 21</span>
+                            <span class="tech-tag">MongoDB Atlas</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Razorpay</span>
                         </div>
                     </div>
-                    <div class="project-tagline">Smart QR-based emergency response and digital identity platform.</div>
-                    <p class="project-desc">
-                        Designed to help people reconnect instantly during accidents, emergencies, misplaced situations, or safety incidents using QR technology. Features dynamic QR generation, secure communication flow, and EnableX voice masking integration to ensure user privacy and instant emergency accessibility.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java Spring Boot</span>
-                        <span class="tech-tag">Thymeleaf</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">REST APIs</span>
-                        <span class="tech-tag">H2/MySQL</span>
-                    </div>
-                </div>
 
-                <!-- Project 3 -->
-                <div class="glass-panel project-card reveal">
-                    <div class="project-header">
-                        <h3 class="project-title">Indian Textile Connect</h3>
-                        <div class="project-links">
-                            <span class="tech-tag" style="font-size: 0.7rem; color: #a0a0a0;">Coming Soon</span>
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="java" onclick="openModal('qrconnect')">
+                        <div class="project-icon">🔗</div>
+                        <h3 class="project-title">QrConnect</h3>
+                        <p class="project-desc">Dynamic QR and token lifecycle platform decoupling physical tags from
+                            real-time profiles.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">ZXing Engine</span>
+                            <span class="tech-tag">PostgreSQL</span>
                         </div>
                     </div>
-                    <div class="project-tagline">Digital wholesale textile marketplace connecting regional sellers.</div>
-                    <p class="project-desc">
-                        A B2B wholesale textile commerce platform designed to connect textile sellers from different regions of India with buyers through a unified digital marketplace. Simplifies supplier discovery, improves regional accessibility, and modernizes textile commerce workflows using scalable microservices architecture.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Microservices</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                </div>
 
-                <!-- Project 4 -->
-                <div class="glass-panel project-card reveal">
-                    <div class="project-header">
-                        <h3 class="project-title">Banking System</h3>
-                        <div class="project-links">
-                            <i class="fas fa-server" style="color: var(--text-secondary);"></i>
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="fullstack" onclick="openModal('airbnb')">
+                        <div class="project-icon">🏠</div>
+                        <h3 class="project-title">Airbnb Listing Clone</h3>
+                        <p class="project-desc">Modern UI clone utilizing App Router SSR/Client separation and a dynamic
+                            pricing engine.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Next.js 15</span>
+                            <span class="tech-tag">React 19</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind</span>
                         </div>
                     </div>
-                    <div class="project-tagline">Enterprise-grade distributed banking backend system.</div>
-                    <p class="project-desc">
-                        A distributed banking platform built using microservices architecture with secure transaction workflows, service discovery, and fault-tolerant backend engineering. Features Dockerized deployment and internal REST API communication.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">REST APIs</span>
+
+                    <!-- Project 5 -->
+                    <div class="project-card" data-category="ai" onclick="openModal('ipl')">
+                        <div class="project-icon">📊</div>
+                        <h3 class="project-title">IPL Score Predictor</h3>
+                        <p class="project-desc">Data pipeline and predictive modeling tool using regression to forecast
+                            match scores.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </section>
-
-        <!-- Achievements & Stats Section -->
-        <section id="achievements" class="section-padding container">
-            <h2 class="section-title reveal">Achievements & Stats</h2>
-            
-            <div class="stats-grid reveal" style="margin-bottom: 3rem;">
-                <div class="glass-panel stat-card">
-                    <div class="stat-number gradient-text">50+</div>
-                    <div class="stat-text">Students Mentored</div>
-                </div>
-                <div class="glass-panel stat-card">
-                    <div class="stat-number gradient-text">4+</div>
-                    <div class="stat-text">Production Projects</div>
-                </div>
-                <div class="glass-panel stat-card">
-                    <div class="stat-number gradient-text">Mult.</div>
-                    <div class="stat-text">Hackathon Wins</div>
-                </div>
-                <div class="glass-panel stat-card">
-                    <div class="stat-number gradient-text"><i class="fas fa-rocket"></i></div>
-                    <div class="stat-text">Startup Builder</div>
-                </div>
-            </div>
-
-            <div class="achievements-grid reveal">
-                <div class="glass-panel achievement-card">
-                    <i class="fas fa-trophy achievement-icon"></i>
-                    <div class="achievement-text">AIR 1 — Smart India Hackathon 2024</div>
-                </div>
-                <div class="glass-panel achievement-card">
-                    <i class="fas fa-medal achievement-icon" style="color: #60a5fa;"></i>
-                    <div class="achievement-text">AIR 1 — Microsoft Clash of Codes</div>
-                </div>
-                <div class="glass-panel achievement-card">
-                    <i class="fas fa-star achievement-icon" style="color: #f97316;"></i>
-                    <div class="achievement-text">Top 100 — Amazon ML Challenge</div>
-                </div>
-                <div class="glass-panel achievement-card">
-                    <i class="fas fa-award achievement-icon" style="color: #c084fc;"></i>
-                    <div class="achievement-text">AIR 2 — ACM HackData</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section-padding container">
-            <h2 class="section-title reveal">Technical Skills</h2>
-            <div class="skills-container reveal">
-                
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Programming & Core CS</h3>
-                    <div class="skills-list">
-                        <div class="skill-pill"><i class="fab fa-java" style="color: #ea580c;"></i> Java</div>
-                        <div class="skill-pill"><i class="fab fa-python" style="color: #3b82f6;"></i> Python</div>
-                        <div class="skill-pill"><i class="fas fa-database" style="color: #eab308;"></i> SQL</div>
-                        <div class="skill-pill"><i class="fas fa-code" style="color: #ef4444;"></i> Data Structures & Algorithms</div>
-                        <div class="skill-pill"><i class="fas fa-cubes" style="color: #a855f7;"></i> OOPs</div>
-                        <div class="skill-pill"><i class="fas fa-project-diagram" style="color: #06b6d4;"></i> System Design</div>
-                        <div class="skill-pill"><i class="fas fa-vial" style="color: #22c55e;"></i> JUnit</div>
-                        <div class="skill-pill"><i class="fab fa-aws" style="color: #f97316;"></i> AWS</div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Automation & AI/ML</h3>
-                    <div class="skills-list">
-                        <div class="skill-pill"><i class="fas fa-chart-line" style="color: #60a5fa;"></i> Data Analysis</div>
-                        <div class="skill-pill"><i class="fas fa-brain" style="color: #ec4899;"></i> TensorFlow</div>
-                        <div class="skill-pill"><i class="fas fa-eye" style="color: #3b82f6;"></i> OpenCV</div>
-                        <div class="skill-pill"><i class="fas fa-robot" style="color: #22c55e;"></i> Selenium</div>
-                        <div class="skill-pill"><i class="fas fa-tasks" style="color: #eab308;"></i> BDD</div>
-                        <div class="skill-pill"><i class="fas fa-search" style="color: #f43f5e;"></i> Sonar Scanner</div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Tools & Platforms</h3>
-                    <div class="skills-list">
-                        <div class="skill-pill"><i class="fab fa-git-alt" style="color: #f05032;"></i> Git</div>
-                        <div class="skill-pill"><i class="fas fa-leaf" style="color: #22c55e;"></i> Spring Boot</div>
-                        <div class="skill-pill"><i class="fas fa-cubes" style="color: #3b82f6;"></i> Microservices</div>
-                        <div class="skill-pill"><i class="fas fa-network-wired" style="color: #a855f7;"></i> REST APIs</div>
-                        <div class="skill-pill"><i class="fab fa-angular" style="color: #dd0031;"></i> Angular</div>
-                        <div class="skill-pill"><i class="fab fa-docker" style="color: #2496ed;"></i> Docker</div>
-                        <div class="skill-pill"><i class="fab fa-linux" style="color: #eab308;"></i> Linux</div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Soft Skills</h3>
-                    <div class="skills-list">
-                        <div class="skill-pill"><i class="fas fa-lightbulb" style="color: #eab308;"></i> Problem Solving</div>
-                        <div class="skill-pill"><i class="fas fa-users" style="color: #3b82f6;"></i> Collaboration</div>
-                        <div class="skill-pill"><i class="fas fa-comments" style="color: #22c55e;"></i> Communication</div>
-                        <div class="skill-pill"><i class="fas fa-user-tie" style="color: #a855f7;"></i> Leadership</div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section-padding container">
-            <h2 class="section-title reveal" style="text-align: center; display: block;">Let's Connect</h2>
-            <div class="contact-content reveal">
-                <p class="contact-text">
-                    I am always open to discussing tech, exploring startup ideas, or talking about scalable backend architectures. Feel free to reach out.
-                </p>
-                <a href="mailto:prince21182@iiitd.ac.in" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
-                    <i class="fas fa-envelope"></i> &nbsp; Drop an Email
-                </a>
-                
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/princeiiitd/" target="_blank" class="social-btn" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin" style="color: #0a66c2;"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/PrinceKumar182" target="_blank" class="social-btn" aria-label="GitHub">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a href="https://leetcode.com/u/prince21182" target="_blank" class="social-btn" aria-label="LeetCode">
-                        <i class="fas fa-code" style="color: #ffa116;"></i> LeetCode
-                    </a>
+        <section id="contact">
+            <div class="container contact">
+                <h2 class="section-title" style="justify-content: center;">Let's Connect</h2>
+                <p>Currently open for new SDE opportunities. Whether you have a question or just want to say hi, I'll
+                    try my best to get back to you!</p>
+                <div class="contact-box">
+                    <span class="contact-email" id="email-text">prince21182@iiitd.ac.in</span>
+                    <button class="btn-copy" onclick="copyEmail()">Copy</button>
                 </div>
             </div>
         </section>
@@ -419,16 +706,208 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Prince Kumar. All rights reserved.</p>
-            <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.8rem;">Designed & Built with code, passion, and AI.</p>
+            <p>Designed & Built by Prince Kumar © 2026</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <a href="#" class="scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
-    </a>
+    <!-- Modals -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modal-dynamic-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Project Data for Modals
+        const projectsData = {
+            instapart: {
+                title: "InstaPart",
+                focus: "Warehouse-aware inventory & transactional cart merging",
+                tech: "Java 17, Spring Boot 3.2, Spring Security, Spring Data JPA, PostgreSQL, Docker, Razorpay.",
+                details: `
+                    <h4>Architecture & Implementation</h4>
+                    <p>Designed a Hyperlocal Spare-Parts Marketplace resolving geographic inventory constraints. Engineered vehicle compatibility mapping to ensure users only see parts fitting their specific models.</p>
+                    <h4>Key Engineering Highlights</h4>
+                    <p>- Implemented Levenshtein fuzzy search for fault-tolerant part discovery.</p>
+                    <p>- Handled transactional cart merging to maintain data consistency during concurrent user sessions.</p>
+                    <p>- Integrated Razorpay for robust checkout flows wrapped in ACID transactions.</p>
+                `
+            },
+            textile: {
+                title: "India Textile Connect",
+                focus: "MongoDB multi-document ACID transactions & idempotency",
+                tech: "Java 21, Spring Boot 3.2, MongoDB Atlas, Firebase Auth, Spring Security, Razorpay.",
+                details: `
+                    <h4>Architecture & Implementation</h4>
+                    <p>Developed a high-throughput B2B/B2C E-Commerce platform managing complex inventory lifecycles across distributed hubs.</p>
+                    <h4>Key Engineering Highlights</h4>
+                    <p>- Leveraged MongoDB multi-document ACID transactions for safe order commits.</p>
+                    <p>- Built stock reservation mechanisms with automated rollback recovery for failed payments.</p>
+                    <p>- Enforced client idempotency tokens to prevent double-charging.</p>
+                    <p>- Integrated Firebase Auth and brute-force protection to secure APIs.</p>
+                `
+            },
+            qrconnect: {
+                title: "QrConnect",
+                focus: "Decoupled physical QR token management",
+                tech: "Java 17, Spring Boot, PostgreSQL, Spring Security, ZXing Engine, Docker.",
+                details: `
+                    <h4>Architecture & Implementation</h4>
+                    <p>Created a dynamic QR and Token Lifecycle platform allowing physical QR codes to be decoupled from hardcoded URLs, routing instead to real-time resolved profiles.</p>
+                    <h4>Key Engineering Highlights</h4>
+                    <p>- Implemented tier-based fulfillment and administrative token lifecycles.</p>
+                    <p>- Secured data storage using BCrypt encryption.</p>
+                    <p>- Integrated ZXing Engine for reliable QR generation and decoding.</p>
+                `
+            },
+            airbnb: {
+                title: "Airbnb Listing Clone",
+                focus: "Next.js 15 App Router SSR/Client separation",
+                tech: "Next.js 15, React 19, TypeScript, Tailwind CSS, Vercel.",
+                details: `
+                    <h4>Architecture & Implementation</h4>
+                    <p>Constructed a Full-Stack Modern UI replicating core Airbnb functionalities with a focus on web performance and responsive design.</p>
+                    <h4>Key Engineering Highlights</h4>
+                    <p>- Mastered SSR and Client-side rendering boundaries using the new App Router.</p>
+                    <p>- Built an interactive dynamic booking and pricing engine.</p>
+                    <p>- Developed responsive image grid modals for an immersive user experience.</p>
+                `
+            },
+            ipl: {
+                title: "IPL Score Predictor & ML Pipeline",
+                focus: "Scikit-learn regression pipelines & feature engineering",
+                tech: "Python, Scikit-learn, Pandas, NumPy, Streamlit.",
+                details: `
+                    <h4>Architecture & Implementation</h4>
+                    <p>Built an end-to-end Machine Learning data pipeline to predict cricket match scores based on historical data.</p>
+                    <h4>Key Engineering Highlights</h4>
+                    <p>- Conducted extensive feature engineering and statistical model evaluation.</p>
+                    <p>- Achieved an R² accuracy of approximately 94.03%.</p>
+                    <p>- Deployed the interactive predictive model via a Streamlit dashboard.</p>
+                `
+            }
+        };
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 15, 0.9)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
+            } else {
+                header.style.background = 'var(--glass-bg)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Filter functionality
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cards = document.querySelectorAll('.project-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        // Small animation
+                        card.style.animation = 'fadeIn 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-dynamic-content');
+
+        function openModal(projectId) {
+            const data = projectsData[projectId];
+            if (!data) return;
+
+            modalContent.innerHTML = `
+                <h3 class="modal-title">${data.title}</h3>
+                <span class="modal-focus">Focus: ${data.focus}</span>
+                <div class="tech-tags" style="margin-bottom: 2rem;">
+                    ${data.tech.split(',').map(t => `<span class="tech-tag">${t.trim()}</span>`).join('')}
+                </div>
+                <div class="modal-body">
+                    ${data.details}
+                </div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Number counter animation (Intersection Observer)
+        const animateNumbers = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targets = entry.target.querySelectorAll('.metric-value[data-target]');
+                    targets.forEach(target => {
+                        const endValue = parseInt(target.getAttribute('data-target'));
+                        let startValue = 0;
+                        const duration = 2000;
+                        const step = endValue / (duration / 16);
+
+                        const updateNumber = () => {
+                            startValue += step;
+                            if (startValue < endValue) {
+                                target.innerHTML = Math.ceil(startValue) + '<span style="color:var(--text-color)">+</span>';
+                                requestAnimationFrame(updateNumber);
+                            } else {
+                                target.innerHTML = endValue + '<span style="color:var(--text-color)">+</span>';
+                            }
+                        };
+                        updateNumber();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateNumbers, { threshold: 0.5 });
+        const expSection = document.getElementById('experience');
+        if (expSection) observer.observe(expSection);
+
+        // Copy to clipboard
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.style.background = 'rgba(0, 210, 255, 0.3)';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = 'rgba(0, 210, 255, 0.1)';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
+
 </html>
