@@ -568,55 +568,66 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience">
-            <div class="container">
-                <h2 class="section-title">Production Experience</h2>
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div>
-                            <h3 class="exp-role">Software Engineer</h3>
-                            <span class="exp-company">@ HCLTech</span>
-                        </div>
-                        <span class="exp-date">Jul 2025 – Present</span>
-                    </div>
-                    <p style="color: var(--secondary-color); margin-bottom: 1rem;">
-                        Core backend engineer responsible for maintaining and optimizing critical enterprise
-                        microservices. Focused on performance profiling, defect resolution, and expanding test coverage
-                        across distributed environments.
-                    </p>
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Production Experience</h2>
+    
+    <!-- HCLTech -->
+    <div class="experience-card" style="margin-bottom: 2rem;">
+      <div class="exp-header">
+        <div>
+          <h3 class="exp-role">Software Engineer – Java Backend</h3>
+          <span class="exp-company">@ HCLTech, Chennai, India</span>
+        </div>
+        <span class="exp-date">Jul 2025 – Present</span>
+      </div>
+      <ul style="color: var(--secondary-color); font-size: 0.95rem; line-height: 1.8; list-style-position: inside; margin-bottom: 1.5rem;">
+        <li><strong>Notification Platform:</strong> Built a centralized REST Toast notification API (Spring Boot) integrated across 14 microservices and 20+ features, giving users real-time progress visibility into long-running asynchronous workflows.</li>
+        <li><strong>Database Performance:</strong> Fixed Hibernate N+1 queries and tuned pagination and PostgreSQL indexes, cutting report generation from 5 minutes to 30 seconds and database round-trips from 8,000+ to about 50.</li>
+        <li><strong>Concurrency Reliability:</strong> Resolved a concurrency bug in asynchronous processing by isolating per-request correlation state, so overlapping workflows no longer interfere with in-flight calculation requests.</li>
+        <li><strong>Real-Time Delivery:</strong> Implemented JWT-based user identification over STOMP WebSockets, fixing user-specific notification failures so every message reaches the correct client session.</li>
+        <li><strong>Log Monitoring (LogWatcher):</strong> Designed a Spring Boot service monitoring logs across 8 services (5K events/day) with pattern matching and dashboard alerts, cutting triage time by 81% and saving 6 hrs/week.</li>
+        <li><strong>SFTP Automation (FileWatcher):</strong> Built a Spring Boot service to automate SFTP report uploads/downloads with auto-failure handling, processing 180 files/day and cutting file errors by 90%.</li>
+      </ul>
+      
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-value">14</div>
+          <div class="metric-label">Microservices Integrated</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">8k <span style="font-size:1rem;color:var(--secondary-color)">to</span> 50</div>
+          <div class="metric-label">DB Round-Trips Reduced</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">5m <span style="font-size:1rem;color:var(--secondary-color)">to</span> 30s</div>
+          <div class="metric-label">Report Generation Speed</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">81%</div>
+          <div class="metric-label">Triage Time Saved</div>
+        </div>
+      </div>
+    </div>
 
-                    <div class="metrics-grid">
-                        <div class="metric-item">
-                            <div class="metric-value" data-target="14">+</div>
-                            <div class="metric-label">Service Spring Boot environment</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">8k <span
-                                    style="font-size:1rem;color:var(--secondary-color)">to</span> 50</div>
-                            <div class="metric-label">DB Calls (N+1 Optimized)</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value" data-target="50">+</div>
-                            <div class="metric-label">P1/P2 Defects Fixed</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">45% <span
-                                    style="font-size:1rem;color:var(--secondary-color)">to</span> 81%</div>
-                            <div class="metric-label">Test Coverage Improved</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem; font-family: var(--font-mono);">🏆 Notable Achievements</h4>
-                        <ul style="color: var(--secondary-color); font-size: 0.95rem; line-height: 1.8; list-style-position: inside;">
-                            <li><strong>Smart India Hackathon (SIH):</strong> All India Rank 1</li>
-                            <li><strong>Microsoft Clash of Codes:</strong> All India Rank 1</li>
-                            <li><strong>Amazon ML Challenge:</strong> Top 100</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- IIITD Innovation & Incubation Center -->
+    <div class="experience-card">
+      <div class="exp-header">
+        <div>
+          <h3 class="exp-role">Backend Software Engineer</h3>
+          <span class="exp-company">@ IIITD Innovation & Incubation Center, New Delhi, India</span>
+        </div>
+        <span class="exp-date">Feb 2025 – May 2025</span>
+      </div>
+      <ul style="color: var(--secondary-color); font-size: 0.95rem; line-height: 1.8; list-style-position: inside;">
+        <li><strong>Backend API Development:</strong> Built Spring Boot REST APIs and backend workflows for a multi-tenant commerce platform.</li>
+        <li><strong>Database Performance:</strong> Reduced API latency by 25% through PostgreSQL indexing, in-memory caching, and removal of redundant queries.</li>
+        <li><strong>Asynchronous Processing:</strong> Moved PDF generation and email notifications to background workers, preventing API requests from waiting for these tasks to finish.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
         <!-- Projects Section -->
         <section id="projects">
